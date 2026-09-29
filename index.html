@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metodologías activas para transformar el aula</title>
+<style>
+  :root{
+    --ink:#203040;
+    --muted:#5d6b78;
+    --bg:#f4f7f9;
+    --card:#ffffff;
+    --accent:#246b8f;
+    --accent2:#3b8c6e;
+    --warm:#d98942;
+    --line:#d9e2e8;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.55;
+  }
+  header{
+    background:linear-gradient(135deg,#173f55,#246b8f);
+    color:white;
+    padding:54px 7%;
+  }
+  header .tag{
+    display:inline-block;
+    padding:7px 12px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:20px;
+    font-size:.85rem;
+    margin-bottom:14px;
+  }
+  h1{font-size:clamp(2rem,4vw,3.4rem);margin:.2em 0 .3em;line-height:1.1}
+  header p{max-width:900px;font-size:1.1rem;margin:0;opacity:.95}
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:white;border-bottom:1px solid var(--line);
+    padding:10px 6%;overflow-x:auto;white-space:nowrap;
+  }
+  nav a{
+    color:var(--accent);text-decoration:none;font-weight:700;
+    margin-right:20px;font-size:.9rem;
+  }
+  main{max-width:1180px;margin:auto;padding:36px 5% 70px}
+  .intro,.method,.toolkit{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:18px;padding:28px;margin-bottom:26px;
+    box-shadow:0 5px 18px rgba(20,45,60,.05);
+  }
+  .intro h2,.method h2,.toolkit h2{margin-top:0}
+  .definition{
+    border-left:5px solid var(--accent);
+    padding:12px 18px;background:#eef6fa;border-radius:8px;
+  }
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:15px;
+  }
+  .mini{
+    border:1px solid var(--line);border-radius:12px;padding:17px;background:#fbfcfd;
+  }
+  .mini h3{font-size:1rem;margin-top:0;color:var(--accent)}
+  .badge{
+    display:inline-block;background:#e7f2ee;color:#286b52;
+    padding:5px 9px;border-radius:15px;font-size:.78rem;font-weight:bold;
+  }
+  .method{
+    scroll-margin-top:70px;
+  }
+  .method-head{
+    display:flex;gap:14px;align-items:flex-start;
+    border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px;
+  }
+  .num{
+    min-width:42px;height:42px;border-radius:50%;
+    background:var(--accent);color:white;display:grid;place-items:center;
+    font-weight:bold;font-size:1.1rem;
+  }
+  .method h2{margin:0}
+  .question{
+    margin:18px 0;padding:20px;border-radius:13px;
+    background:#fff7ed;border-left:5px solid var(--warm);
+  }
+  .question strong{color:#8a5428}
+  ol.steps{padding-left:25px}
+  ol.steps li{margin-bottom:12px}
+  .example{
+    background:#eef7f2;border:1px solid #cfe5d9;border-radius:14px;padding:20px;margin-top:20px;
+  }
+  .example h3{margin-top:0;color:#286b52}
+  .example .prompt{
+    background:white;border-radius:10px;padding:13px;margin:12px 0;
+    border-left:4px solid var(--accent2);
+  }
+  .evidence{
+    background:#f6f7fb;border:1px solid #dfe3ef;padding:15px;border-radius:10px;
+  }
+  table{width:100%;border-collapse:collapse;font-size:.94rem}
+  th,td{border:1px solid var(--line);padding:12px;vertical-align:top;text-align:left}
+  th{background:#edf3f6;color:#24485c}
+  footer{
+    background:#173f55;color:white;padding:28px 7%;font-size:.9rem;
+  }
+  .small{font-size:.9rem;color:var(--muted)}
+  @media print{
+    nav{display:none}
+    body{background:white}
+    .intro,.method,.toolkit{box-shadow:none;break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag">Guía práctica para docentes</span>
+  <h1>Metodologías activas para transformar el aula</h1>
+  <p>Una guía para seleccionar, planear e implementar metodologías activas con estudiantes de instituciones educativas oficiales de Medellín.</p>
+</header>
+
+<nav>
+  <a href="#que-son">¿Qué son?</a>
+  <a href="#comparativo">Comparativo</a>
+  <a href="#abp">ABP</a>
+  <a href="#abr">ABR</a>
+  <a href="#problemas">ABProblemas</a>
+  <a href="#design">Design Thinking</a>
+  <a href="#cooperativo">Cooperativo</a>
+  <a href="#gamificacion">Gamificación</a>
+  <a href="#invertida">Aula invertida</a>
+  <a href="#kit">Kit de planeación</a>
+</nav>
+
+<main>
+
+<section id="que-son" class="intro">
+  <h2>¿Qué son las metodologías activas?</h2>
+  <div class="definition">
+    <strong>Definición:</strong> son enfoques de enseñanza en los que el estudiante participa activamente en la construcción del aprendizaje mediante la investigación, la colaboración, la resolución de situaciones, la creación de productos o la toma de decisiones. El docente diseña condiciones, acompaña el proceso, formula preguntas y ofrece retroalimentación.
+  </div>
+  <p><strong>Idea clave:</strong> una metodología activa no consiste simplemente en “hacer una actividad diferente”. Requiere una intención de aprendizaje clara, participación significativa del estudiante, un proceso de construcción y alguna forma de evidencia que permita valorar lo aprendido.</p>
+
+  <div class="grid">
+    <div class="mini"><h3>Estudiante protagonista</h3><p>Toma decisiones, investiga, crea, argumenta, prueba o resuelve.</p></div>
+    <div class="mini"><h3>Docente mediador</h3><p>Planea, orienta, pregunta, modela, retroalimenta y acompaña.</p></div>
+    <div class="mini"><h3>Contexto auténtico</h3><p>La situación de aprendizaje tiene relación con problemas, necesidades o intereses reales.</p></div>
+    <div class="mini"><h3>Evidencia</h3><p>El proceso produce algo observable: prototipo, solución, propuesta, explicación, campaña, presentación o desempeño.</p></div>
+  </div>
+</section>
+
+<section id="comparativo" class="toolkit">
+  <h2>Mapa rápido de selección</h2>
+  <table>
+    <thead><tr><th>Metodología</th><th>Centro de la experiencia</th><th>Pregunta / estructura orientadora</th><th>Producto o evidencia frecuente</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Aprendizaje Basado en Proyectos (ABP)</strong></td><td>Crear un producto o solución a través de un proyecto.</td><td>Pregunta guía: <em>¿Cómo podemos...?</em></td><td>Producto, prototipo, campaña, recurso o presentación pública.</td></tr>
+      <tr><td><strong>Aprendizaje Basado en Retos (ABR)</strong></td><td>Responder a un reto auténtico y abierto.</td><td>Reto: <em>¿Cómo podríamos...?</em></td><td>Solución/prototipo y evidencia de validación.</td></tr>
+      <tr><td><strong>Aprendizaje Basado en Problemas</strong></td><td>Analizar y resolver una situación problemática.</td><td>Problema: <em>¿Qué está ocurriendo y cómo podemos explicarlo o resolverlo?</em></td><td>Hipótesis, análisis, solución argumentada.</td></tr>
+      <tr><td><strong>Design Thinking</strong></td><td>Comprender a las personas y diseñar soluciones centradas en sus necesidades.</td><td>Pregunta de diseño: <em>¿Cómo podríamos...?</em></td><td>Prototipo, prueba y mejora.</td></tr>
+      <tr><td><strong>Aprendizaje cooperativo</strong></td><td>Aprender con otros mediante interdependencia y responsabilidad individual.</td><td>Meta compartida: <em>Todos necesitamos aportar para...</em></td><td>Producto colectivo + evidencias individuales.</td></tr>
+      <tr><td><strong>Gamificación</strong></td><td>Incorporar elementos de juego para favorecer participación y progresión.</td><td>Afirmación narrativa: <em>“Tenemos una misión que resolver...”</em></td><td>Desafíos, niveles, insignias, decisiones o misiones.</td></tr>
+      <tr><td><strong>Aula invertida</strong></td><td>Trasladar parte de la aproximación inicial al contenido fuera del encuentro presencial y dedicar el aula a aplicar.</td><td>Afirmación de preparación: <em>“Antes de la clase, explora...”</em></td><td>Producción, aplicación, discusión y resolución en clase.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="abp" class="method">
+  <div class="method-head"><div class="num">1</div><div><h2>Aprendizaje Basado en Proyectos — ABP</h2><span class="badge">Producto + proceso + socialización</span></div></div>
+  <p><strong>¿Qué es?</strong> El grupo desarrolla un proyecto durante varias sesiones para responder una pregunta guía y construir un producto significativo que movilice conocimientos y habilidades de una o varias áreas.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Pregunta guía auténtica.</li><li>Proceso de investigación y creación.</li><li>Producto concreto.</li><li>Integración de áreas cuando sea pertinente.</li><li>Revisión y mejora.</li><li>Socialización de resultados.</li></ul></div>
+    <div class="mini"><h3>Rol docente</h3><p>Diseña el desafío, establece criterios, acompaña la investigación, ofrece retroalimentación y verifica los aprendizajes.</p></div>
+    <div class="mini"><h3>Rol estudiante</h3><p>Planifica, investiga, toma decisiones, crea, prueba, argumenta y comunica.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de pregunta guía:</strong> ¿Cómo podemos <em>[verbo de acción]</em> para <em>[propósito]</em> en nuestra comunidad educativa?</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Define los aprendizajes y desempeños que quieres desarrollar.</li>
+    <li>Selecciona una situación auténtica del contexto escolar.</li>
+    <li>Formula una pregunta guía abierta.</li>
+    <li>Planifica fases, equipos, recursos, tiempos y criterios de éxito.</li>
+    <li>Activa saberes previos y orienta la investigación.</li>
+    <li>Acompaña la creación del producto mediante entregas parciales.</li>
+    <li>Incluye revisión, retroalimentación y mejora.</li>
+    <li>Socializa el producto ante una audiencia real o simulada.</li>
+    <li>Evalúa producto, proceso y aprendizaje individual.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Situación:</strong> estudiantes de 8.º observan que en algunos espacios del colegio se desperdicia agua.</p>
+    <div class="prompt"><strong>Pregunta guía:</strong> ¿Cómo podemos diseñar una estrategia para reducir el desperdicio de agua en nuestra institución?</div>
+    <p><strong>Áreas posibles:</strong> Ciencias Naturales, Matemáticas, Tecnología, Lenguaje y Educación Ambiental.</p>
+    <p><strong>Producto:</strong> diagnóstico con datos, propuesta de intervención, piezas de sensibilización y un prototipo sencillo de solución.</p>
+    <p><strong>Evidencias:</strong> registro de datos, análisis, bitácora, producto final, presentación y reflexión sobre resultados.</p>
+  </div>
+</section>
+
+<section id="abr" class="method">
+  <div class="method-head"><div class="num">2</div><div><h2>Aprendizaje Basado en Retos — ABR</h2><span class="badge">Reto auténtico + acción + solución</span></div></div>
+  <p><strong>¿Qué es?</strong> Parte de una situación desafiante y abierta que invita a comprender el contexto, proponer alternativas, actuar y revisar el impacto de la solución.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Reto amplio y significativo.</li><li>Investigación contextual.</li><li>Soluciones abiertas.</li><li>Participación activa.</li><li>Iteración y validación.</li><li>Conexión con la comunidad.</li></ul></div>
+    <div class="mini"><h3>Clave diferencial</h3><p>El énfasis está en <strong>responder a un reto</strong> y llevar la propuesta hacia la acción, no únicamente en elaborar un producto escolar.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de reto:</strong> ¿Cómo podríamos <em>[transformar/mejorar/resolver]</em> <em>[situación]</em> para <em>[beneficiarios]</em>?</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Identifica un reto relevante para el entorno.</li>
+    <li>Delimita la población o comunidad involucrada.</li>
+    <li>Investiga causas, datos y perspectivas.</li>
+    <li>Formula criterios para una solución viable.</li>
+    <li>Genera varias alternativas.</li>
+    <li>Selecciona y desarrolla una solución.</li>
+    <li>Prueba, recoge información y ajusta.</li>
+    <li>Implementa o simula la acción.</li>
+    <li>Valora resultados y comunica aprendizajes.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Reto:</strong> mejorar la experiencia de llegada y desplazamiento seguro de estudiantes en los alrededores de la institución.</p>
+    <div class="prompt"><strong>Pregunta reto:</strong> ¿Cómo podríamos proponer acciones para mejorar la movilidad y el cuidado de los estudiantes en el entorno escolar?</div>
+    <p><strong>Acciones:</strong> observación, mapas del entorno, entrevistas, análisis de datos, diseño de alternativas y presentación de la propuesta a la comunidad educativa.</p>
+  </div>
+</section>
+
+<section id="problemas" class="method">
+  <div class="method-head"><div class="num">3</div><div><h2>Aprendizaje Basado en Problemas</h2><span class="badge">Problema + investigación + solución argumentada</span></div></div>
+  <p><strong>¿Qué es?</strong> El aprendizaje se organiza alrededor de un problema que no tiene una respuesta inmediata. Los estudiantes necesitan identificar lo que saben, lo que necesitan investigar, analizar información y construir una explicación o solución fundamentada.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Problema complejo.</li><li>Información incompleta o contextual.</li><li>Preguntas de investigación.</li><li>Trabajo colaborativo.</li><li>Argumentación con evidencia.</li></ul></div>
+    <div class="mini"><h3>Ideal para</h3><p>Ciencias, matemáticas, ciencias sociales, lenguaje y situaciones interdisciplinarias en las que se requiere analizar información antes de decidir.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de problema:</strong> ¿Qué está ocurriendo, por qué podría estar ocurriendo y qué evidencias necesitamos para proponer una solución?</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Presenta una situación problemática sin entregar la solución.</li>
+    <li>Permite que el grupo identifique lo que sabe y lo que desconoce.</li>
+    <li>Formula preguntas de investigación.</li>
+    <li>Distribuye responsabilidades para buscar y analizar información.</li>
+    <li>Contrasta fuentes y construye explicaciones.</li>
+    <li>Formula alternativas de solución.</li>
+    <li>Argumenta la alternativa seleccionada con evidencias.</li>
+    <li>Evalúa el razonamiento y los aprendizajes.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Situación:</strong> en una zona de la institución se percibe mayor acumulación de residuos después del descanso.</p>
+    <div class="prompt"><strong>Pregunta problema:</strong> ¿Por qué se está presentando esta situación y qué solución podría disminuirla?</div>
+    <p><strong>Evidencia esperada:</strong> datos de observación, clasificación de residuos, posibles causas, comparación de alternativas y solución argumentada.</p>
+  </div>
+</section>
+
+<section id="design" class="method">
+  <div class="method-head"><div class="num">4</div><div><h2>Design Thinking</h2><span class="badge">Empatizar + definir + idear + prototipar + probar</span></div></div>
+  <p><strong>¿Qué es?</strong> Es un enfoque de diseño centrado en las personas que ayuda a comprender necesidades reales, generar ideas, crear prototipos y aprender mediante pruebas.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Centrado en las personas.</li><li>Escucha y observación.</li><li>Definición precisa de necesidades.</li><li>Ideación divergente.</li><li>Prototipos rápidos.</li><li>Prueba y mejora.</li></ul></div>
+    <div class="mini"><h3>Secuencia</h3><p><strong>Empatizar → Definir → Idear → Prototipar → Probar.</strong> Las fases pueden repetirse cuando la evidencia muestre que es necesario ajustar.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de pregunta de diseño:</strong> ¿Cómo podríamos <em>[mejorar una experiencia concreta]</em> para <em>[persona o grupo]</em>?</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Define a quién quieres comprender o beneficiar.</li>
+    <li>Observa, entrevista o recoge experiencias.</li>
+    <li>Sintetiza hallazgos y define una necesidad.</li>
+    <li>Genera muchas alternativas antes de elegir.</li>
+    <li>Construye un prototipo de baja fidelidad.</li>
+    <li>Prueba con usuarios o compañeros.</li>
+    <li>Recoge retroalimentación.</li>
+    <li>Itera y presenta la versión mejorada.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Situación:</strong> algunos estudiantes tienen dificultades para encontrar información importante en los canales de comunicación escolar.</p>
+    <div class="prompt"><strong>Pregunta de diseño:</strong> ¿Cómo podríamos hacer que la información escolar importante sea más fácil de encontrar y comprender para los estudiantes?</div>
+    <p><strong>Prototipos posibles:</strong> tablero visual, boletín digital, señalización, chatbot conceptual o sistema de organización de información.</p>
+  </div>
+</section>
+
+<section id="cooperativo" class="method">
+  <div class="method-head"><div class="num">5</div><div><h2>Aprendizaje cooperativo</h2><span class="badge">Interdependencia + responsabilidad individual</span></div></div>
+  <p><strong>¿Qué es?</strong> Organiza el aprendizaje mediante equipos pequeños con roles, metas compartidas y responsabilidad individual. No es simplemente “trabajar en grupo”: cada integrante debe tener una contribución necesaria y evaluable.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Meta común.</li><li>Roles definidos.</li><li>Responsabilidad individual.</li><li>Interdependencia positiva.</li><li>Interacción cara a cara o mediada.</li><li>Evaluación del funcionamiento del equipo.</li></ul></div>
+    <div class="mini"><h3>Estructuras útiles</h3><p>Rompecabezas (Jigsaw), pensar-compartir, tutoría entre pares, equipos de expertos y roles rotativos.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de afirmación/meta:</strong> “Todos necesitamos aportar para construir una explicación/propuesta que responda a ________.”</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Define una meta de aprendizaje común.</li>
+    <li>Forma equipos pequeños y heterogéneos cuando sea pertinente.</li>
+    <li>Asigna roles y responsabilidades claras.</li>
+    <li>Diseña una tarea que requiera cooperación real.</li>
+    <li>Monitorea participación y comprensión individual.</li>
+    <li>Haz una puesta en común.</li>
+    <li>Evalúa el producto y la contribución de cada estudiante.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Actividad:</strong> analizar una noticia sobre una situación ambiental de la ciudad.</p>
+    <p><strong>Equipos:</strong> cada estudiante analiza una dimensión: datos, fuentes, argumentos, impacto social o propuestas. Luego enseñan su parte al equipo y construyen una postura sustentada.</p>
+    <p><strong>Producto:</strong> mapa argumentativo colectivo y explicación oral.</p>
+  </div>
+</section>
+
+<section id="gamificacion" class="method">
+  <div class="method-head"><div class="num">6</div><div><h2>Gamificación</h2><span class="badge">Narrativa + desafíos + progresión</span></div></div>
+  <p><strong>¿Qué es?</strong> Integra elementos propios de los juegos en experiencias educativas: misiones, niveles, retroalimentación, desafíos, narrativa, insignias o progreso. No significa convertir toda la clase en un juego ni reducir el aprendizaje a premios.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Narrativa o contexto.</li><li>Desafíos graduados.</li><li>Reglas transparentes.</li><li>Retroalimentación frecuente.</li><li>Progreso visible.</li><li>Decisiones y autonomía.</li></ul></div>
+    <div class="mini"><h3>Cuidado pedagógico</h3><p>Los elementos de juego deben estar al servicio del aprendizaje. Evita que la competencia, los puntos o los premios sustituyan la comprensión.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de afirmación narrativa:</strong> “Tenemos una misión: necesitamos ________ para lograr ________ antes de ________.”</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Define aprendizajes concretos.</li>
+    <li>Construye una narrativa relacionada con el contexto.</li>
+    <li>Diseña misiones o desafíos que exijan aplicar lo aprendido.</li>
+    <li>Establece reglas y criterios transparentes.</li>
+    <li>Ofrece retroalimentación y oportunidades de mejora.</li>
+    <li>Registra progreso sin convertir la calificación en un sistema de puntos.</li>
+    <li>Cierra con una evidencia que demuestre el aprendizaje.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Narrativa:</strong> “Somos un equipo de guardianes de la ciudadanía digital”.</p>
+    <div class="prompt"><strong>Misión:</strong> analizar situaciones de riesgo digital y construir recomendaciones para proteger datos personales y convivir responsablemente en internet.</div>
+    <p><strong>Desafíos:</strong> identificar riesgos, analizar casos, tomar decisiones y crear una guía breve para otros estudiantes.</p>
+  </div>
+</section>
+
+<section id="invertida" class="method">
+  <div class="method-head"><div class="num">7</div><div><h2>Aula invertida (Flipped Classroom)</h2><span class="badge">Preparación previa + aplicación en aula</span></div></div>
+  <p><strong>¿Qué es?</strong> Propone que el estudiante tenga un primer acercamiento a determinados contenidos antes del encuentro de aula mediante recursos breves y accesibles, para dedicar el tiempo compartido a aplicar, resolver, discutir, crear y recibir acompañamiento.</p>
+  <div class="grid">
+    <div class="mini"><h3>Características</h3><ul><li>Recurso previo breve.</li><li>Instrucciones claras.</li><li>Actividad de preparación.</li><li>Tiempo de aula centrado en aplicación.</li><li>Retroalimentación docente.</li><li>Flexibilidad y accesibilidad.</li></ul></div>
+    <div class="mini"><h3>No es simplemente...</h3><p>“Mandar un video para la casa”. La inversión ocurre cuando el tiempo de aula cambia de lógica y se utiliza para resolver, crear, discutir y aplicar.</p></div>
+  </div>
+  <div class="question"><strong>Modelo de afirmación de preparación:</strong> “Antes de la clase, explora ________. Durante la clase utilizaremos lo aprendido para ________.”</div>
+  <h3>Paso a paso</h3>
+  <ol class="steps">
+    <li>Identifica qué concepto puede abordarse previamente.</li>
+    <li>Selecciona o crea un recurso breve y accesible.</li>
+    <li>Incluye una actividad de comprobación sencilla.</li>
+    <li>Revisa las evidencias antes o al inicio de la clase.</li>
+    <li>Utiliza el encuentro para resolver dudas y aplicar.</li>
+    <li>Propón una tarea de transferencia o creación.</li>
+    <li>Evalúa el desempeño y ofrece retroalimentación.</li>
+  </ol>
+  <div class="example">
+    <h3>Ejemplo — Institución oficial de Medellín</h3>
+    <p><strong>Tema:</strong> lectura crítica de información sobre inteligencia artificial.</p>
+    <p><strong>Antes del aula:</strong> los estudiantes consultan un recurso breve sobre fuente, evidencia y opinión y responden tres preguntas.</p>
+    <div class="prompt"><strong>En clase:</strong> comparar dos publicaciones sobre IA, identificar afirmaciones y evidencias, detectar información insuficiente y construir una respuesta argumentada.</div>
+    <p><strong>Producto:</strong> matriz de análisis de fuentes y argumento final.</p>
+  </div>
+</section>
+
+<section id="kit" class="toolkit">
+  <h2>Kit rápido para planear cualquier metodología activa</h2>
+  <ol class="steps">
+    <li><strong>Aprendizaje:</strong> ¿qué debe poder hacer el estudiante al finalizar?</li>
+    <li><strong>Contexto:</strong> ¿qué situación real o significativa puede activar ese aprendizaje?</li>
+    <li><strong>Metodología:</strong> ¿necesitas crear un producto, resolver un reto, analizar un problema, diseñar para alguien, cooperar, jugar o invertir el tiempo de aula?</li>
+    <li><strong>Pregunta / reto / afirmación:</strong> formula el detonante con lenguaje claro y abierto cuando corresponda.</li>
+    <li><strong>Secuencia:</strong> organiza inicio, exploración, construcción, aplicación, socialización y cierre.</li>
+    <li><strong>Evidencia:</strong> define qué producirá o hará el estudiante.</li>
+    <li><strong>Criterios:</strong> comunica desde el inicio qué características tendrá un buen desempeño.</li>
+    <li><strong>Retroalimentación:</strong> incorpora momentos para revisar y mejorar.</li>
+    <li><strong>Inclusión:</strong> ofrece diferentes formas de acceder a la información, participar y demostrar lo aprendido.</li>
+    <li><strong>Transferencia:</strong> cierra preguntando dónde más puede utilizarse lo aprendido.</li>
+  </ol>
+
+  <h3>Plantilla de planeación</h3>
+  <table>
+    <tbody>
+      <tr><th>Metodología seleccionada</th><td>________________________________________</td></tr>
+      <tr><th>Grado / área</th><td>________________________________________</td></tr>
+      <tr><th>Aprendizaje esperado</th><td>________________________________________</td></tr>
+      <tr><th>Situación de contexto</th><td>________________________________________</td></tr>
+      <tr><th>Pregunta, reto o afirmación</th><td>________________________________________</td></tr>
+      <tr><th>Activación de saberes previos</th><td>________________________________________</td></tr>
+      <tr><th>Secuencia de actividades</th><td>________________________________________</td></tr>
+      <tr><th>Producto / evidencia</th><td>________________________________________</td></tr>
+      <tr><th>Criterios de evaluación</th><td>________________________________________</td></tr>
+      <tr><th>Retroalimentación</th><td>________________________________________</td></tr>
+      <tr><th>Recursos y apoyos</th><td>________________________________________</td></tr>
+      <tr><th>Ajustes de accesibilidad / inclusión</th><td>________________________________________</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="intro">
+  <h2>Una decisión pedagógica antes de elegir la metodología</h2>
+  <p>No es necesario usar todas las metodologías. La selección debe partir del <strong>aprendizaje que se quiere lograr</strong>, las características del grupo, el tiempo disponible, los recursos y el contexto.</p>
+  <div class="grid">
+    <div class="mini"><h3>Si quieres...</h3><p>crear una solución o producto durante varias sesiones → <strong>ABP</strong>.</p></div>
+    <div class="mini"><h3>Si quieres...</h3><p>enfrentar un desafío auténtico y actuar sobre él → <strong>ABR</strong>.</p></div>
+    <div class="mini"><h3>Si quieres...</h3><p>analizar una situación compleja antes de resolverla → <strong>Aprendizaje Basado en Problemas</strong>.</p></div>
+    <div class="mini"><h3>Si quieres...</h3><p>diseñar una solución centrada en las necesidades de personas → <strong>Design Thinking</strong>.</p></div>
+    <div class="mini"><h3>Si quieres...</h3><p>desarrollar interdependencia y responsabilidad compartida → <strong>Aprendizaje cooperativo</strong>.</p></div>
+    <div class="mini"><h3>Si quieres...</h3><p>usar narrativa y desafíos para aumentar participación → <strong>Gamificación</strong>.</p></div>
+    <div class="mini"><h3>Si quieres...</h3><p>reservar el aula para aplicar y profundizar → <strong>Aula invertida</strong>.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>Guía de metodologías activas</strong><br>
+  Recurso de apoyo para planeación pedagógica. Los ejemplos son adaptables a diferentes grados, áreas y contextos de instituciones educativas oficiales de Medellín.
+</footer>
+
+</body>
+</html>
